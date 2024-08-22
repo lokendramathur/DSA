@@ -1,0 +1,36 @@
+
+import java.util.*;
+
+class Main
+{
+    public static void main(String args[]){
+        int n = 10, m = 7;
+        int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int arr2[] = {2, 3, 4, 4, 5, 11, 12};
+
+        ArrayList<Integer> Union = findUnion(arr1, arr2, n, m);
+        for (int val: Union)
+            System.out.print(val+" ");
+    }
+
+    //Function to return a list containing the union of the two arrays.
+    public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m)
+    {
+        Set<Integer> st = new TreeSet<>();
+        ArrayList<Integer> al = new ArrayList<>();
+
+        // 1st Arrays element copy in treeSet (uniq elements)
+        for(int i = 0; i < n; i++)
+            st.add(arr1[i]);
+
+        // 2nd Arrays element copy in treeSet (uniq elements)
+        for(int j = 0; j < m; j++)
+            st.add(arr2[j]);
+
+        // treeSet copy to ArrayList();
+        for(int i : st)
+            al.add(i);
+
+        return al;
+    }
+}
